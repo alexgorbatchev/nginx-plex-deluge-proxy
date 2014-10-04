@@ -1,0 +1,15 @@
+media_proxy/ssl
+media_proxy/htpasswd
+*.swp
+
+
+conf.d
+fastcgi_params
+koi-utf
+koi-win
+mime.types
+scgi_params
+uwsgi_params
+win-utf
+
+
