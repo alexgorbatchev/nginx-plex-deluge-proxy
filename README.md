@@ -7,6 +7,7 @@ It gives you the following paths:
 
 * `https://X.X.X.X/plex`
 * `https://X.X.X.X/deluge`
+* `https://X.X.X.X/couchpotato`
 
 ## Installation
 
