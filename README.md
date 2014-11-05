@@ -5,9 +5,11 @@ This is an NGINX configuration to allow plex and deluge reverse proxy.
 
 It gives you the following paths:
 
-* `https://X.X.X.X/plex`
-* `https://X.X.X.X/deluge`
-* `https://X.X.X.X/couchpotato`
+* `http://X.X.X.X/` -> plex
+* `http://X.X.X.X/deluge`
+* `http://X.X.X.X/couchpotato`
+
+On my laptop, I edited `/etc/hosts` to include `X.X.X.X media` so that I can type `http://media` instead of IP.
 
 ## Installation
 
@@ -17,14 +19,13 @@ These files need to be copied/cloned into the NGINX config folder, for example `
 
 ### Step 2
 
-You then need to generate self signed SSL certificate:
-
-```bash
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout media_proxy/ssl/nginx.key -out media_proxy/ssl/nginx.crt
-```
+Create `media_proxy/htpasswd` file using [this handy site](http://www.htaccesstools.com/htpasswd-generator/) or native means, whatever you feel comfortable with. This username/password will be prompted for when you try to access the proxy.
 
 ### Step 3
 
-Create `media_proxy/htpasswd` file using [this handy site](http://www.htaccesstools.com/htpasswd-generator/) or native means, whatever you feel comfortable with. This username/password will be prompted for when you try to access the proxy.
+Restart NGNIX `sudo service nginx restart`
 
+### Step 4
+
+You should be able to open `http://X.X.X.X` and see Plex now.
 
